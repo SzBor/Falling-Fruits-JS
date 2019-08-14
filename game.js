@@ -17,7 +17,7 @@ setInterval(function() {
       return;
     }
     const targetNode = nextRow.querySelector(
-      ".cell:nth-child(" + (columnIndex + 1) + ")"
+      `.cell:nth-child(${columnIndex + 1})"`
     );
     targetNode.classList.add(".fruit");
   });
