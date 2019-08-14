@@ -6,20 +6,19 @@ makeBoard(board, 10);
 
 setInterval(function() {
   const allFruitNodes = document.querySelectorAll(".fruit");
-
-  allFruitNodes.forEach(function(element) {
-    element.classList.remove("fruit");
+    allFruitNodes.forEach(function(element) {
+        element.classList.remove("fruit");
 
     const columnIndex = getIndexWithinParent(element);
     const nextRow = getNextRow(element);
     if (nextRow === null) {
-      alert("game over");
+      console.log("game over");
       return;
     }
     const targetNode = nextRow.querySelector(
-      `.cell:nth-child(${columnIndex + 1})"`
+      `.cell:nth-child(${columnIndex + 1})`
     );
-    targetNode.classList.add(".fruit");
+    targetNode.classList.add("fruit");
   });
 }, 1000);
 

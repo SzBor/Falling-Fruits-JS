@@ -18,5 +18,9 @@
 }
 
 .fruit {
-  background: red;
+  background-color: red;
+}
+
+.basket {
+  background-color: blue;
 }
