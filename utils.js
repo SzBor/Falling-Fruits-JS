@@ -35,7 +35,7 @@ function moveFruit(element) {
   const columnIndex = getIndexWithinParent(element);
   const nextRow = getNextRow(element);
   if (nextRow === null) {
-    console.log("game over");
+    alert("game over");
     return;
   }
   const targetNode = nextRow.querySelector(
@@ -87,7 +87,7 @@ function play() {
     });
   }, 500);
 
-  spawnIntervalId = setInterval(spawnFruit, 3000);
+  spawnIntervalId = setInterval(spawnFruit, 1500);
 
   function updateScore(deltaOfPoints) {
     score += deltaOfPoints;
