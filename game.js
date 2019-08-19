@@ -1,6 +1,11 @@
 "use strict";
 
 const board = document.querySelector("#board");
+const scoreNode = document.querySelector("#score");
+
+let score = 0;
+
+scoreNode.textContent = score;
 
 makeBoard(board, 10);
 
@@ -26,7 +31,17 @@ window.addEventListener("keyup", function(event) {
     basketNode.classList.remove("basket");
     targetNode.classList.add("basket");
   }
+  const potentiallyRemovableFruit = document.querySelector(".fruit.basket");
+
+    if (potentiallyRemovableFruit !== null) {
+      potentiallyRemovableFruit.classList.remove("fruit");
+      score+=1
+      scoreNode.textContent = score;
+    }
 });
+
+
+
 
 setInterval(function() {
   const allFruitNodes = document.querySelectorAll(".fruit");
@@ -50,6 +65,8 @@ setInterval(function() {
 
     if (potentiallyRemovableFruit !== null) {
       potentiallyRemovableFruit.classList.remove("fruit");
+      score+=1
+      scoreNode.textContent = score;
     }
   });
 }, 500);
