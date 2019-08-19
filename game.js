@@ -30,7 +30,9 @@ window.addEventListener("keyup", function(event) {
 
 setInterval(function() {
   const allFruitNodes = document.querySelectorAll(".fruit");
-  allFruitNodes.forEach(function(element) {
+
+  allFruitNodes.forEach(function(element, index) {
+
     element.classList.remove("fruit");
 
     const columnIndex = getIndexWithinParent(element);
@@ -43,14 +45,22 @@ setInterval(function() {
       `.cell:nth-child(${columnIndex + 1})`
     );
     targetNode.classList.add("fruit");
-  });
-}, 1000);
 
-setInterval(function() {
+    const potentiallyRemovableFruit = document.querySelector(".fruit.basket");
+
+    if (potentiallyRemovableFruit !== null) {
+      potentiallyRemovableFruit.classList.remove("fruit");
+    }
+  });
+}, 500);
+
+setInterval(spawnFruit, 3000);
+
+function spawnFruit() {
   const allFreeCellsInFirstRow = document.querySelectorAll(
     ".row:nth-child(1) .cell:not(.friut)"
   );
   const howManyFreeCells = allFreeCellsInFirstRow.length;
   const randomIndex = Math.floor(Math.random() * howManyFreeCells);
   allFreeCellsInFirstRow[randomIndex].classList.add("fruit");
-}, 3000);
+}
